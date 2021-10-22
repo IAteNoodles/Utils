@@ -33,8 +33,16 @@ class Classwork:
         except EOFError and FileNotFoundError as e:
             print("Error Occurred")
 
+    def lookup_student_data(self):
+        with open(self.path, "rb") as file_handle:
+            print(file_handle.read(2))
+            print(file_handle.tell())
+            file_handle.seek(-5, 2)
+            print(file_handle.tell(), file_handle.read())
+
 
 if __name__ == "__main__":
     obj = Classwork()
     obj.store_data()
     obj.display_student_data()
+    obj.lookup_student_data()
